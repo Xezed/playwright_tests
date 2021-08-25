@@ -1,10 +1,10 @@
-FROM mcr.microsoft.com/playwright:focal
+FROM mcr.microsoft.com/playwright:v1.14.1-focal
 
 WORKDIR /sanity-checks
 
 COPY /package.json .
-RUN npm install
+COPY /package-lock.json .
 
 COPY . ./
 
-CMD ["npm", "test"]
+CMD ["npx", "playwright", "test"]
