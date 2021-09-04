@@ -2,9 +2,9 @@ const { test, expect } = require('@playwright/test');
 
 test('top story navigation', async ({ page }) => {
   await page.goto('https://hackernoon.com/');
-  // :visible pseudoclass
-  const title = page.locator('.sponsor:visible');
-  await title.click();
+
+  // search for "Top Stories" text then filter down to visible
+  await page.click('text=Top Stories >> visible=true');
 
   await expect(page).toHaveURL(
     'https://hackernoon.com/tagged/hackernoon-top-story',
