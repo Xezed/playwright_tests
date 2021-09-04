@@ -24,7 +24,7 @@ resource "aws_ecs_task_definition" "playwright_tests" {
         logDriver: "awslogs",
         options: {
           awslogs-group: aws_cloudwatch_log_group.playwright_tests.name,
-          awslogs-region: 'us-west-2',
+          awslogs-region: "us-west-2",
           awslogs-stream-prefix: "ecs"
         }
       },
