@@ -16,7 +16,7 @@ resource "aws_cloudwatch_log_group" "playwright_tests" {
 
 resource "aws_ecs_task_definition" "playwright_tests" {
   family = "playwright_tests"
-  execution_role_arn = module.iam.role_for_ecs_task_execution_arn
+  execution_role_arn = aws_iam_role.ecs_task_execution_role.arn
 
   container_definitions = jsonencode([
     {
