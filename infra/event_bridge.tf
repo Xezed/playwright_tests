@@ -17,12 +17,12 @@ resource "aws_cloudwatch_event_target" "state_machine_target" {
     task_definition_arn = aws_ecs_task_definition.playwright_tests.arn
     launch_type         = "FARGATE"
 
-    network_configuration = {
-      Subnets        = [
+    network_configuration {
+      subnets          = [
         aws_default_subnet.default_az1.id,
         aws_default_subnet.default_az2.id
-      ],
-      AssignPublicIp = "ENABLED",
+      ]
+      assign_public_ip = true
     }
   }
 }
