@@ -22,6 +22,13 @@ resource "aws_iam_policy" "policy_for_event_bridge" {
         ],
         Resource: "*"
       },
+      {
+        Effect: "Allow",
+        Action: [
+          "iam:PassRole",
+        ],
+        Resource: "*"
+      },
     ]
   })
 }
