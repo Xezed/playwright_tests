@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/playwright:v1.14.1-focal
 
-WORKDIR /sanity-checks
+WORKDIR /playwright_tests
 
 COPY /package.json .
 COPY /package-lock.json .
